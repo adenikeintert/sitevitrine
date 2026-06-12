@@ -1,0 +1,100 @@
+/* ===== Variables custom ===== */
+:root {
+    --color-primary: #1a1a2e;
+    --color-primary-light: #16213e;
+    --color-primary-mid: #0f3460;
+    --color-accent: #f97316;
+    --color-accent-light: #fb923c;
+    --color-accent-dark: #ea580c;
+    --color-gold: #EBB510;
+    --color-gold-light: #f0c535;
+    --color-steel: #64748b;
+    --color-steel-light: #94a3b8;
+    --color-sand: #faf8f5;
+    --color-sand-dark: #f0ece6;
+    --font-sans: 'Lexend', system-ui, sans-serif;
+}
+
+/* ===== Base ===== */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: var(--font-sans);
+    color: var(--color-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+::selection {
+    background: var(--color-accent);
+    color: #fff;
+}
+
+/* ===== Reveal animations ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+.reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ===== Delays ===== */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+
+/* ===== Float animation ===== */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-12px); }
+}
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* ===== Count animation ===== */
+@keyframes countUp {
+    from { opacity: 0; transform: scale(0.5); }
+    to   { opacity: 1; transform: scale(1); }
+}
+.animate-count {
+    animation: countUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ===== Couleurs Tailwind custom via propriétés CSS ===== */
+/* Utilisées avec style="color: var(--color-accent)" ou classe bg-[var(--color-accent)] */
+.text-primary        { color: var(--color-primary); }
+.text-accent         { color: var(--color-accent); }
+.text-accent-light   { color: var(--color-accent-light); }
+.bg-primary          { background-color: var(--color-primary); }
+.bg-primary-light    { background-color: var(--color-primary-light); }
+.bg-accent           { background-color: var(--color-accent); }
+.bg-accent-light     { background-color: var(--color-accent-light); }
+.bg-sand             { background-color: var(--color-sand); }
+.bg-sand-dark        { background-color: var(--color-sand-dark); }
+.border-accent       { border-color: var(--color-accent); }

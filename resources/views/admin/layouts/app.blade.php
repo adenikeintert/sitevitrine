@@ -8,7 +8,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- Tailwind CSS via CDN --}}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary:         '#1a1a2e',
+                        'primary-light': '#16213e',
+                        'primary-mid':   '#0f3460',
+                        accent:          '#f97316',
+                        'accent-light':  '#fb923c',
+                        'accent-dark':   '#ea580c',
+                       // Dans le tailwind.config
+gold:          '#EBB510',
+'gold-light':  '#f0c535',
+                        steel:           '#64748b',
+                        'steel-light':   '#94a3b8',
+                        sand:            '#faf8f5',
+                        'sand-dark':     '#f0ece6',
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; background: #f8fafc; }
         .admin-sidebar { background: #0b1120; }
