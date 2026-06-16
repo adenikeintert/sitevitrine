@@ -4,11 +4,11 @@
     --color-primary: #1a1a2e;
     --color-primary-light: #16213e;
     --color-primary-mid: #0f3460;
---color-accent: #f97316;
---color-accent-light: #fb923c;
---color-accent-dark: #ea580c;
- --color-gold: #EBB510;
---color-gold-light: #f0c535;
+    --color-accent: #EEB407;
+    --color-accent-light: #EEB407;
+    --color-accent-dark: #ea580c;
+    --color-gold: #ebb510;
+    --color-gold-light: #f0c535;
     --color-steel: #64748b;
     --color-steel-light: #94a3b8;
     --color-sand: #faf8f5;

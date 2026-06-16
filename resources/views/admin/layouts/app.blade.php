@@ -18,7 +18,7 @@
                         primary:         '#1a1a2e',
                         'primary-light': '#16213e',
                         'primary-mid':   '#0f3460',
-                        accent:          '#f97316',
+                        accent:          '#EEB407',
                         'accent-light':  '#fb923c',
                         'accent-dark':   '#ea580c',
                        // Dans le tailwind.config
