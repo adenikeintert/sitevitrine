@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Parametre;
 use App\Models\ImageVitrine;
+use App\Models\Categorie;
 
 class SiteController extends Controller
 {
@@ -70,13 +71,7 @@ class SiteController extends Controller
         return view('pages.apropos', compact('infos', 'entrepriseImages', 'equipeImages'));
     }
 
-    public function produits()
-    {
-        $infos = $this->getInfos();
-        $produitImages = $this->imagesPar('produit');
-
-        return view('pages.produits', compact('infos', 'produitImages'));
-    }
+    
 
     public function realisations()
     {
@@ -91,4 +86,14 @@ class SiteController extends Controller
         $infos = $this->getInfos();
         return view('pages.contact', compact('infos'));
     }
+    public function produits()
+{
+    $infos = $this->getInfos();
+    $categories = Categorie::actives()
+        ->with(['produits' => fn($q) => $q->actifs()->orderBy('ordre')])
+        ->orderBy('ordre')
+        ->get();
+
+    return view('pages.produits', compact('infos', 'categories'));
+}
 }

@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\CategorieController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ParametreController;
 use App\Http\Controllers\Admin\ImageVitrineController;
+use App\Http\Controllers\Admin\ProduitController;
 use Illuminate\Support\Facades\Route;
 
 // ============================================
@@ -39,5 +41,20 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('images/{image}', [ImageVitrineController::class, 'destroy'])->name('images.destroy');
         Route::patch('images/{image}/toggle', [ImageVitrineController::class, 'toggle'])->name('images.toggle');
         Route::patch('images/{image}/order', [ImageVitrineController::class, 'order'])->name('images.order');
+
+
+        // Catégories
+        Route::get('categories', [CategorieController::class, 'index'])->name('categories.index');
+        Route::post('categories', [CategorieController::class, 'store'])->name('categories.store');
+        Route::put('categories/{categorie}', [CategorieController::class, 'update'])->name('categories.update');
+        Route::delete('categories/{categorie}', [CategorieController::class, 'destroy'])->name('categories.destroy');
+
+        // Produits
+        Route::get('produits', [ProduitController::class, 'index'])->name('produits.index');
+        Route::get('produits/create', [ProduitController::class, 'create'])->name('produits.create');
+        Route::post('produits', [ProduitController::class, 'store'])->name('produits.store');
+        Route::get('produits/{produit}/edit', [ProduitController::class, 'edit'])->name('produits.edit');
+        Route::put('produits/{produit}', [ProduitController::class, 'update'])->name('produits.update');
+        Route::delete('produits/{produit}', [ProduitController::class, 'destroy'])->name('produits.destroy');
     });
 });
