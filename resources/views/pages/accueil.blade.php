@@ -6,6 +6,7 @@
 @endphp
 
 @section('content')
+@include('partials.schema')
 
 {{-- HERO SLIDER --}}
 

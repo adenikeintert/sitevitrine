@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@yield('title', ($infos['nom_societe'] ?? 'ADENIKE-INTER') . ' — Matériaux de construction & BTP')</title>
+
+    <title>@yield('title', ($infos['nom_societe'] ?? 'ADENIKE-INTER') . ' — Matériaux de construction & BTP au Bénin')</title>
     <meta name="description" content="@yield('description', ($infos['nom_societe'] ?? 'ADENIKE-INTER SARL') . ', votre partenaire pour les matériaux de construction et projets BTP au Bénin.')" />
+    <meta name="keywords" content="@yield('keywords', 'matériaux de construction Bénin, quincaillerie Cotonou, BTP Bénin, ciment, fer à béton, ADENIKE-INTER')" />
+    <meta name="robots" content="@yield('robots', 'index, follow')" />
+    <link rel="canonical" href="@yield('canonical', url()->current())" />
+
+    {{-- Favicon (logo.png) --}}
+    <link rel="icon" type="image/png" href="{{ $infos['logo'] ?? asset('assets/logo.png') }}" />
+    <link rel="apple-touch-icon" href="{{ $infos['logo'] ?? asset('assets/logo.png') }}" />
+
+    {{-- Open Graph / Facebook --}}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@yield('og_title', ($infos['nom_societe'] ?? 'ADENIKE-INTER'))" />
+    <meta property="og:description" content="@yield('og_description', $infos['description'] ?? '')" />
+    <meta property="og:image" content="@yield('og_image', $infos['logo'] ?? asset('assets/logo.png'))" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="{{ $infos['nom_societe'] ?? 'ADENIKE-INTER' }}" />
+
+    {{-- Twitter Card --}}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@yield('og_title', $infos['nom_societe'] ?? 'ADENIKE-INTER')" />
+    <meta name="twitter:description" content="@yield('og_description', $infos['description'] ?? '')" />
+    <meta name="twitter:image" content="@yield('og_image', $infos['logo'] ?? asset('assets/logo.png'))" />
+
+    @stack('schema')
 
     {{-- Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,9 +49,8 @@
                         accent:        '#EEB407',
                         'accent-light':'#fb923c',
                         'accent-dark': '#ea580c',
-                        // Dans le tailwind.config
-gold:          '#EBB510',
-'gold-light':  '#f0c535',
+                        gold:          '#EBB510',
+                        'gold-light':  '#f0c535',
                         steel:         '#64748b',
                         'steel-light': '#94a3b8',
                         sand:          '#faf8f5',
