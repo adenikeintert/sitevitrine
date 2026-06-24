@@ -17,7 +17,7 @@ class EquipeController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nom' => 'required|string|max:255',
+            'nom' => 'nullable|string|max:255',
             'poste' => 'required|string|max:255',
             'photo' => 'nullable|image|max:4096',
             'description' => 'nullable|string',
@@ -37,7 +37,7 @@ class EquipeController extends Controller
     public function update(Request $request, Equipe $equipe)
     {
         $data = $request->validate([
-            'nom' => 'required|string|max:255',
+            'nom' => 'nullable|string|max:255',
             'poste' => 'required|string|max:255',
             'photo' => 'nullable|image|max:4096',
             'description' => 'nullable|string',

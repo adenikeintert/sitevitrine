@@ -63,7 +63,7 @@
             @csrf
             <div>
                 <label class="text-sm font-medium text-gray-700">Nom complet</label>
-                <input type="text" name="nom" required class="w-full mt-1 rounded-lg border-gray-200 border px-3 py-2 text-sm">
+                <input type="text" name="nom"  class="w-full mt-1 rounded-lg border-gray-200 border px-3 py-2 text-sm">
             </div>
             <div>
                 <label class="text-sm font-medium text-gray-700">Poste</label>
