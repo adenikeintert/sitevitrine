@@ -4,6 +4,7 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategorieController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EquipeController;
 use App\Http\Controllers\Admin\ParametreController;
 use App\Http\Controllers\Admin\ImageVitrineController;
 use App\Http\Controllers\Admin\ProduitController;
@@ -17,7 +18,7 @@ Route::get('/a-propos', [SiteController::class, 'apropos'])->name('apropos');
 Route::get('/produits', [SiteController::class, 'produits'])->name('produits');
 Route::get('/realisations', [SiteController::class, 'realisations'])->name('realisations');
 Route::get('/contact', [SiteController::class, 'contact'])->name('contact');
-
+Route::get('/equipe', [SiteController::class, 'equipe'])->name('equipe');
 // ============================================
 // ADMIN - Auth
 // ============================================
@@ -56,5 +57,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('produits/{produit}/edit', [ProduitController::class, 'edit'])->name('produits.edit');
         Route::put('produits/{produit}', [ProduitController::class, 'update'])->name('produits.update');
         Route::delete('produits/{produit}', [ProduitController::class, 'destroy'])->name('produits.destroy');
+
+        
+        // Equipes
+        Route::get('equipe', [EquipeController::class, 'index'])->name('equipe.index');
+        Route::post('equipe', [EquipeController::class, 'store'])->name('equipe.store');
+        Route::put('equipe/{equipe}', [EquipeController::class, 'update'])->name('equipe.update');
+        Route::delete('equipe/{equipe}', [EquipeController::class, 'destroy'])->name('equipe.destroy');
     });
 });

@@ -48,6 +48,7 @@
                     ['route' => 'produits', 'label' => 'Produits'],
                     ['route' => 'realisations', 'label' => 'Réalisations'],
                     ['route' => 'contact', 'label' => 'Contact'],
+                    ['route' => 'equipe', 'label' => 'Équipe'],
                 ] as $link)
                     <a href="{{ route($link['route']) }}"
                        class="px-4 py-2 rounded-lg text-sm font-medium transition-colors

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Parametre;
 use App\Models\ImageVitrine;
 use App\Models\Categorie;
+use App\Models\Equipe;
 
 class SiteController extends Controller
 {
@@ -95,5 +96,11 @@ class SiteController extends Controller
         ->get();
 
     return view('pages.produits', compact('infos', 'categories'));
+}
+public function equipe()
+{
+    $infos = $this->getInfos();
+    $membres = Equipe::actifs()->orderBy('ordre')->get();
+    return view('pages.equipe', compact('infos', 'membres'));
 }
 }
