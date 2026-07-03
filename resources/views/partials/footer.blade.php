@@ -9,16 +9,25 @@
     $slogan = $infos['slogan'] ?? 'Votre partenaire en matériaux de construction';
 @endphp
 
-<footer class="bg-primary text-white/70">
+<footer class="bg-primary text-white/70 relative">
+    {{-- liseré graduation en haut, écho de la règle du hero --}}
+    <div class="h-1.5 w-full flex">
+        @for ($i = 0; $i < 40; $i++)
+            <div class="flex-1 {{ $i % 5 === 0 ? 'bg-accent' : 'bg-accent/20' }} {{ $i % 5 === 0 ? '' : 'mx-px' }}"></div>
+        @endfor
+    </div>
+
     <div class="max-w-7xl mx-auto px-6 py-16">
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
             <div>
                 @if($logo)
                     <img src="{{ $logo }}" alt="{{ $nom }}" class="h-12 w-auto mb-4" />
                 @else
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-accent flex items-center justify-center"><span class="text-white font-bold text-lg">A</span></div>
-                        <div><span class="text-lg font-bold text-white">ADENIKE</span><span class="text-lg font-bold text-accent">-INTER</span></div>
+                    <div class="flex items-center gap-2.5 mb-4 font-['Oswald',sans-serif]">
+                        <div class="w-10 h-10 bg-accent flex items-center justify-center" style="clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%);">
+                            <span class="text-white font-bold text-lg">A</span>
+                        </div>
+                        <div><span class="text-lg font-bold tracking-wide text-white">ADENIKE</span><span class="text-lg font-bold tracking-wide text-accent">-INTER</span></div>
                     </div>
                 @endif
                 <p class="text-sm leading-relaxed max-w-sm">
@@ -26,7 +35,7 @@
                 </p>
                 @if($facebook)
                     <div class="flex gap-3 mt-4">
-                        <a href="{{ $facebook }}" target="_blank" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-accent flex items-center justify-center transition">
+                        <a href="{{ $facebook }}" target="_blank" class="w-9 h-9 bg-white/10 hover:bg-accent flex items-center justify-center transition">
                             <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
                     </div>
@@ -34,7 +43,9 @@
             </div>
 
             <div>
-                <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Navigation</h4>
+                <h4 class="font-['Oswald',sans-serif] text-white text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <span class="w-4 h-px bg-accent"></span>Navigation
+                </h4>
                 <ul class="space-y-2">
                     @foreach(['accueil' => 'Accueil', 'apropos' => 'À propos', 'produits' => 'Produits', 'realisations' => 'Réalisations', 'contact' => 'Contact'] as $r => $l)
                         <li><a href="{{ route($r) }}" class="text-sm hover:text-accent transition">{{ $l }}</a></li>
@@ -43,20 +54,22 @@
             </div>
 
             <div>
-                <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Nos sites</h4>
+                <h4 class="font-['Oswald',sans-serif] text-white text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <span class="w-4 h-px bg-accent"></span>Nos sites
+                </h4>
                 <ul class="space-y-2 text-sm">
-                    <li>Porto-Novo</li>
-                    <li>Avrankou</li>
-                    <li>Dangbo </li>
-                    <li>Abomey-Calavi</li>
-                    <li>Adjarra (en construction) </li>
-
-
+                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent"></span>Porto-Novo</li>
+                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent"></span>Avrankou</li>
+                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent"></span>Dangbo</li>
+                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent"></span>Abomey-Calavi</li>
+                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-white/30"></span><span class="text-white/50">Adjarra (en construction)</span></li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Contact</h4>
+                <h4 class="font-['Oswald',sans-serif] text-white text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <span class="w-4 h-px bg-accent"></span>Contact
+                </h4>
                 <ul class="space-y-3 text-sm">
                     <li class="flex items-center gap-2">
                         <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
