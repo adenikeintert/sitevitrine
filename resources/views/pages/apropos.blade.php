@@ -3,12 +3,24 @@
 
 @section('content')
 
-{{-- BANNER --}}
-<section class="pt-32 pb-20 bg-primary">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-        <span class="inline-block px-4 py-1.5 bg-accent/20 text-accent rounded-full text-sm font-semibold mb-4">À propos</span>
-        <h1 class="text-4xl lg:text-5xl font-bold text-white mb-4">Notre histoire, nos valeurs</h1>
-        <p class="text-steel-light max-w-2xl mx-auto text-lg">Depuis 2017, nous bâtissons la confiance avec nos clients et partenaires.</p>
+{{-- BANNIÈRE --}}
+<section class="relative pt-36 pb-24 bg-primary overflow-hidden">
+    <div class="hidden lg:block absolute inset-y-0 right-0 w-1/3 bg-primary-light" style="clip-path: polygon(35% 0, 100% 0, 100% 100%, 0 100%);"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="max-w-2xl">
+            <div class="inline-flex items-center gap-2 pl-2 pr-4 py-1.5 mb-6 border border-accent/40 rounded-sm">
+                <span class="px-2 py-0.5 bg-accent text-white text-[11px] font-bold tracking-wide">À PROPOS</span>
+                <span class="text-white/70 text-xs sm:text-sm font-medium">ADENIKE-INTER SARL</span>
+            </div>
+
+            <h1 class="font-['Oswald',sans-serif] uppercase text-4xl lg:text-5xl font-bold text-white mb-5 leading-[1.05]">
+                Notre histoire, <span class="text-accent">nos valeurs</span>
+            </h1>
+            <p class="text-steel-light text-lg leading-relaxed">
+                Depuis 2017, nous bâtissons la confiance avec nos clients et partenaires, chantier après chantier.
+            </p>
+        </div>
     </div>
 </section>
 
@@ -18,26 +30,31 @@
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="reveal-left relative">
                 @if(count($entrepriseImages) > 0)
-                    <img src="{{ $entrepriseImages[0]['image'] }}" alt="ADENIKE-INTER" class="w-full rounded-2xl shadow-2xl object-cover aspect-[4/3]" />
+                    <div style="clip-path: polygon(0 0, 100% 0, 100% 92%, 90% 100%, 0 100%);">
+                        <img src="{{ $entrepriseImages[0]['image'] }}" alt="ADENIKE-INTER" class="w-full shadow-2xl object-cover aspect-[4/3]" />
+                    </div>
                 @else
-                    <div class="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-sand to-sand-dark"></div>
+                    <div class="w-full aspect-[4/3] bg-gradient-to-br from-sand to-sand-dark"></div>
                 @endif
-                <div class="absolute -bottom-6 -right-6 bg-accent text-white p-6 rounded-2xl shadow-xl hidden sm:block animate-float">
-                    <p class="text-3xl font-bold">2017</p>
+                <div class="absolute -bottom-6 -right-6 bg-accent text-white p-6 shadow-xl hidden sm:block">
+                    <p class="font-['Oswald',sans-serif] text-3xl font-bold">2017</p>
                     <p class="text-sm text-white/80">Année de création</p>
                 </div>
             </div>
 
             <div class="reveal">
-                <span class="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-semibold mb-4">Notre histoire</span>
-                <h2 class="text-3xl font-bold text-primary mb-6">Fondée en 2017</h2>
+                <span class="inline-flex items-center gap-2 mb-4">
+                    <span class="w-6 h-px bg-accent"></span>
+                    <span class="text-accent text-xs font-bold uppercase tracking-widest">Notre histoire</span>
+                </span>
+                <h2 class="font-['Oswald',sans-serif] uppercase text-3xl font-bold text-primary mb-6 leading-tight">Fondée en 2017</h2>
                 <p class="text-steel text-lg mb-4 leading-relaxed">
                     ADENIKE-INTER SARL est une grande société créée en 2017 au Bénin. Elle est spécialisée dans la commercialisation des matériaux de construction de tout type : plomberie, maçonnerie, menuiserie, barres de fer, tuyauteries, etc.
                 </p>
-                <p class="text-steel mb-4">
+                <p class="text-steel mb-4 leading-relaxed">
                     Forte de son expertise et de son réseau de fournisseurs directs, ADENIKE-INTER s'approvisionne auprès des fabricants afin de garantir des matériaux de haute qualité à des prix compétitifs. Nous vendons en gros et en détail.
                 </p>
-                <p class="text-steel">
+                <p class="text-steel leading-relaxed">
                     Au-delà de la vente de matériaux, nous intervenons dans la construction de maisons, d'immeubles et de bâtiments divers, en assurant un suivi rigoureux et un respect strict des normes de qualité.
                 </p>
             </div>
@@ -49,8 +66,12 @@
 <section class="py-24 bg-sand">
     <div class="max-w-7xl mx-auto px-6">
         <div class="reveal text-center mb-16">
-            <span class="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-semibold mb-4">Nos valeurs</span>
-            <h2 class="text-3xl lg:text-4xl font-bold text-primary">Ce qui nous guide au quotidien</h2>
+            <span class="inline-flex items-center gap-2 justify-center mb-4">
+                <span class="w-6 h-px bg-accent"></span>
+                <span class="text-accent text-xs font-bold uppercase tracking-widest">Nos valeurs</span>
+                <span class="w-6 h-px bg-accent"></span>
+            </span>
+            <h2 class="font-['Oswald',sans-serif] uppercase text-3xl lg:text-4xl font-bold text-primary">Ce qui nous guide au quotidien</h2>
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -62,11 +83,15 @@
                 ['titre' => 'Engagement', 'desc' => 'Chaque projet bénéficie d\'un engagement total. Suivi rigoureux et résultats à la hauteur des attentes.', 'icon' => 'M13 10V3L4 14h7v7l9-11h-7z'],
                 ['titre' => 'Excellence', 'desc' => 'Portés par une recherche constante d\'excellence, nous visons l\'amélioration continue dans chacun de nos services.', 'icon' => 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z'],
             ] as $i => $v)
-                <div class="reveal delay-{{ ($i % 3) + 1 }} bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group">
-                    <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent group-hover:scale-110 transition-all">
+                <div class="reveal delay-{{ ($i % 3) + 1 }} group relative bg-white p-8 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1"
+                     style="clip-path: polygon(0 0, 100% 0, 100% 100%, 14px 100%, 0 calc(100% - 14px));">
+                    <span class="absolute top-4 right-4 text-[10px] font-mono text-steel-light/60 group-hover:text-accent transition-colors">{{ sprintf('%02d', $i + 1) }}</span>
+
+                    <div class="w-12 h-12 bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent group-hover:scale-110 transition-all"
+                         style="clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%);">
                         <svg class="w-6 h-6 text-accent group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $v['icon'] }}"/></svg>
                     </div>
-                    <h3 class="text-lg font-bold text-primary mb-3">{{ $v['titre'] }}</h3>
+                    <h3 class="font-['Oswald',sans-serif] uppercase text-lg font-bold text-primary mb-3 tracking-wide">{{ $v['titre'] }}</h3>
                     <p class="text-sm text-steel leading-relaxed">{{ $v['desc'] }}</p>
                 </div>
             @endforeach
@@ -74,23 +99,28 @@
     </div>
 </section>
 
-{{-- ÉQUIPE (depuis API) --}}
+{{-- ÉQUIPE --}}
 <section class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="reveal text-center mb-16">
-            <span class="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-semibold mb-4">Notre équipe</span>
-            <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">Une équipe pluridisciplinaire</h2>
+            <span class="inline-flex items-center gap-2 justify-center mb-4">
+                <span class="w-6 h-px bg-accent"></span>
+                <span class="text-accent text-xs font-bold uppercase tracking-widest">Notre équipe</span>
+                <span class="w-6 h-px bg-accent"></span>
+            </span>
+            <h2 class="font-['Oswald',sans-serif] uppercase text-3xl lg:text-4xl font-bold text-primary mb-4">Une équipe pluridisciplinaire</h2>
             <p class="text-steel max-w-3xl mx-auto">Direction, comptabilité, magasiniers, manutentionnaires, conducteurs et personnel de chantier — chaque collaborateur contribue à notre excellence.</p>
         </div>
 
         @if(count($equipeImages) > 0)
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 @foreach($equipeImages as $i => $img)
-                    <div class="reveal delay-{{ ($i % 4) + 1 }} group bg-sand rounded-2xl overflow-hidden hover:shadow-lg transition-all">
-                        <div class="aspect-[3/4] overflow-hidden">
+                    <div class="reveal delay-{{ ($i % 4) + 1 }} group bg-sand overflow-hidden hover:shadow-lg transition-all">
+                        <div class="aspect-[3/4] overflow-hidden relative">
                             <img src="{{ $img['image'] }}" alt="{{ $img['titre'] }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                            <div class="absolute inset-0 border-b-2 border-accent/0 group-hover:border-accent/80 transition-colors"></div>
                         </div>
-                        <div class="p-4 text-center">
+                        <div class="p-4 text-center border-t-2 border-accent/0 group-hover:border-accent transition-colors">
                             <h4 class="font-bold text-primary">{{ $img['titre'] }}</h4>
                             @if($img['description'] ?? false)
                                 <p class="text-sm text-accent">{{ $img['description'] }}</p>
@@ -111,34 +141,38 @@
 <section class="py-20 bg-sand">
     <div class="max-w-7xl mx-auto px-6">
         <div class="reveal text-center mb-12">
-            <span class="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-semibold mb-4">Partenaires</span>
-            <h2 class="text-3xl font-bold text-primary mb-4">Nos fournisseurs et partenaires</h2>
+            <span class="inline-flex items-center gap-2 justify-center mb-4">
+                <span class="w-6 h-px bg-accent"></span>
+                <span class="text-accent text-xs font-bold uppercase tracking-widest">Partenaires</span>
+                <span class="w-6 h-px bg-accent"></span>
+            </span>
+            <h2 class="font-['Oswald',sans-serif] uppercase text-2xl sm:text-3xl font-bold text-primary">Nos fournisseurs et partenaires</h2>
         </div>
 
         <div class="grid lg:grid-cols-2 gap-8">
-            <div class="reveal bg-white rounded-2xl p-8 shadow-sm">
-                <h3 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+            <div class="reveal bg-white p-8 shadow-sm border-l-2 border-accent">
+                <h3 class="font-['Oswald',sans-serif] uppercase text-lg font-bold text-primary mb-4 flex items-center gap-2 tracking-wide">
                     <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
                     Partenaires locaux — Bénin
                 </h3>
                 <ul class="space-y-3">
                     @foreach(['NOCIBE — Usine de fabrication de ciment', 'FMB — Fer à béton, fil de fer', 'SIAB — Fer à béton, tôles, pointes', 'SBS — Fer à béton', 'IBP — Produits de plomberie', 'Sonimex — Fer à béton'] as $p)
                         <li class="flex items-center gap-3 text-steel text-sm">
-                            <div class="w-2 h-2 rounded-full bg-accent flex-shrink-0"></div>
+                            <span class="w-1.5 h-1.5 bg-accent flex-shrink-0"></span>
                             {{ $p }}
                         </li>
                     @endforeach
                 </ul>
             </div>
-            <div class="reveal delay-2 bg-white rounded-2xl p-8 shadow-sm">
-                <h3 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
-                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div class="reveal delay-2 bg-white p-8 shadow-sm border-l-2 border-gold">
+                <h3 class="font-['Oswald',sans-serif] uppercase text-lg font-bold text-primary mb-4 flex items-center gap-2 tracking-wide">
+                    <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     Approvisionnement international
                 </h3>
                 <ul class="space-y-3">
-                    @foreach(['Contreplaqués et panneaux de bois ', 'Matériaux et équipements importés '] as $p)
+                    @foreach(['Contreplaqués et panneaux de bois', 'Matériaux et équipements importés'] as $p)
                         <li class="flex items-center gap-3 text-steel text-sm">
-                            <div class="w-2 h-2 rounded-full bg-gold flex-shrink-0"></div>
+                            <span class="w-1.5 h-1.5 bg-gold flex-shrink-0"></span>
                             {{ $p }}
                         </li>
                     @endforeach
